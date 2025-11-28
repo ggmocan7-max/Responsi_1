@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="brand">
+        <h2>Dashboard Admin</h2>
+      </div>
+      <nav>
+        <a href="#" class="active">Mahasiswa</a>
+        <a href="#">Buku</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header>
+        <button id="menuBtn">☰</button>
+        <input type="text" id="search" placeholder="Cari data..."/>
+        <div class="actions">
+          <button id="themeBtn">🌗</button>
+          <button id="exportBtn">Ekspor</button>
+          <label for="importFile" class="import-label">Impor</label>
+          <input type="file" id="importFile" accept="application/json"/>
+        </div>
+      </header>
+
+      <section class="grid">
+        <!-- Data Table -->
+        <div class="card">
+          <h3>Data Mahasiswa</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>NIM</th><th>Nama</th><th>Prodi</th><th>Email</th><th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Form -->
+        <div class="card">
+          <h3>Form Input</h3>
+          <form id="formData">
+            <input type="hidden" id="indexEdit" value="-1"/>
+            <input type="text" id="nim" placeholder="NIM" required/>
+            <input type="text" id="nama" placeholder="Nama" required/>
+            <select id="prodi" required>
+              <option value="">-- Pilih Prodi --</option>
+              <option>Teknologi Informasi</option>
+              <option>Arsitektur</option>
+              <option>Bioteknologi</option>
+            </select>
+            <input type="email" id="email" placeholder="Email" required/>
+            <div class="form-actions">
+              <button type="submit">Simpan</button>
+              <button type="button" id="resetBtn">Reset</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
